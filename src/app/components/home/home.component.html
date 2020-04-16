@@ -1,0 +1,53 @@
+               <div class="ui inverted dimmer" [class.active]='loading'>
+                <div class="ui text loader">Loading</div>
+            </div>
+            
+                  
+                    <div id="ab" class="jumbotron bg-white text-center p-0 m-0">
+                <h1 class="display-4"> Covid-19 Tracker(World-Cases)</h1>
+               
+                <app-dashboard [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'></app-dashboard>
+            
+            </div>
+        
+            <hr>
+            <div class="ui form">
+                <div class="inline fields">
+                    <label for="fruit"><h3>Select Case Type : </h3></label>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" id='c' #c (click)='updateChart(c)' value="c" name="casetype" checked="" tabindex="0" class="hidden">
+                            <label for='c'><h4>Confirmed </h4></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" value='d' #d (click)='updateChart(d)' id='d' name="casetype" tabindex="0" class="hidden">
+                            <label for='d'><h4>Deaths</h4></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" value='r' #r (click)='updateChart(r)' id='r' name="casetype" tabindex="0" class="hidden">
+                            <label for='r'><h4>Recovered</h4></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input id='a' #a type="radio" (click)='updateChart(a)' value='a' name="casetype" tabindex="0" class="hidden">
+                            <label for='a'><h4>Active</h4></label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col">
+                        <!-- <google-chart [data]="columnChart"></google-chart> -->
+                        <google-chart [data]="datatable" [type]='pie'></google-chart>
+                    </div>
+                    <div class="col">
+                        <!-- <google-chart [data]="pieChart"></google-chart> -->
+                        <google-chart [data]="datatable" [type]='column'></google-chart>
+                    </div>
+                </div>
+                
