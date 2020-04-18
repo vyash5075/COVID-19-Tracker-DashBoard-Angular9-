@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   
   pie = 'PieChart'
-  column = 'ColumnChart'
+  bar = 'BarChart'
   constructor(private dataService: DataServiceService) { }
   ngOnInit(): void {
 

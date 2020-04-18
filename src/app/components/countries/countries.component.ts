@@ -25,10 +25,11 @@ export class CountriesComponent implements OnInit {
   dateWiseData ;
   loading = true;
   datatable = [];
-  // lineChart : GoogleChartInterface = {
-  //   chartType: 'LineChart'
-  // }
-  pie = 'PieChart'
+  lineChart : GoogleChartInterface = {
+    chartType: 'LineChart'
+  }
+  // pie = 'PieChart'
+  // linechart:'LineChart'
   constructor(private service : DataServiceService) { }
 
   ngOnInit(): void {
@@ -48,43 +49,43 @@ export class CountriesComponent implements OnInit {
     ).subscribe(
       {
         complete : ()=>{
-         this.updateValues('India')
+         this.updateValues('US')
          this.loading = false;
         }
       }
     )
   }
 
-  // updateChart(){
-  //   let dataTable = [];
-  //   dataTable.push(["Date" , 'Cases'])
-  //   this.selectedCountryData.forEach(cs=>{
-  //     dataTable.push([cs.date , cs.cases])
-  //   })
-
-  //   this.lineChart = {
-  //     chartType: 'LineChart',
-  //     dataTable: dataTable,
-  //     //firstRowIsData: true,
-  //     options: {
-  //       height : 500, 
-  //       animation:{
-  //         duration: 1000,
-  //         easing: 'out',
-  //       },
-  //     },
-  //   };
-  // }
-
-  updateChart()
-  {
-    let dt=[];
+  updateChart(){
+    let dataTable = [];
+    dataTable.push(["Date" , 'Cases'])
     this.selectedCountryData.forEach(cs=>{
-          dt.push([cs.cases,cs.date])
-         })
-         console.log(dt);
-    this.datatable = dt;
+      dataTable.push([cs.date , cs.cases])
+    })
+
+    this.lineChart = {
+      chartType: 'LineChart',
+      dataTable: dataTable,
+      //firstRowIsData: true,
+      options: {
+        height : 500, 
+        animation:{
+          duration: 1000,
+          easing: 'out',
+        },
+      },
+    };
   }
+
+  // updateChart()
+  // {
+  //   let dt=[];
+  //   this.selectedCountryData.forEach(cs=>{
+  //         dt.push([cs.cases,cs.date])
+  //        })
+  //        console.log(dt);
+  //   this.datatable = dt;
+  // }
 
   updateValues(country : string){
     console.log(country);
