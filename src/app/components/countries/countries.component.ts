@@ -175,21 +175,14 @@ ngOnInit(): void {
       }
     }
   )
-  
-  
-
 }
-
 updateChart(){
   let dataTable = [];
   dataTable.push(["Date" , 'Cases'])
   this.selectedCountryData.forEach(cs=>{
     dataTable.push([cs.date , cs.cases])
   })
-
- 
 }
-
 updateValues(country : string){
   console.log(country);
   this.data.forEach(cs=>{
