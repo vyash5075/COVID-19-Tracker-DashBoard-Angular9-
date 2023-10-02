@@ -3,7 +3,7 @@ G# Covid19Tracker
 This project was generated with [Angular CLI](https://githubx.com/angular/angular-cli) version 8.3.22.
 
 ## Development server.y
-Z
+Zb
 Run `ng serve` for a dev server. Navigate to `http://losdcalhost:4200/`. The app will automatically reload if you change any of the source files.
 n
 ## Code scaffolding
